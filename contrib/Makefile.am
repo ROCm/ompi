@@ -17,6 +17,7 @@
 # Copyright (c) 2013      Intel Corporation.  All rights reserved.
 # Copyright (c) 2017      Amazon.com, Inc. or its affiliates.
 #                         All Rights reserved.
+# Copyright (c) 2025      Advanced Micro Devices, Inc. All Rights reserved.
 # $COPYRIGHT$
 #
 # Additional copyrights may follow
@@ -39,6 +40,8 @@ EXTRA_DIST = \
 	dist/linux/openmpi.spec \
 	dist/mofed/compile_debian_mlnx_example.in \
 	dist/mofed/debian \
+	dist/amd/package_debian_amd.in \
+	dist/amd/debian \
 	platform/optimized \
 	platform/ornl/cray_xt_cnl_romio \
 	platform/ornl/cray_xt_cnl_romio_debug \

@@ -1,0 +1,5 @@
+openmpi (@OMPI_MAJOR_VERSION@.@OMPI_MINOR_VERSION@.@OMPI_RELEASE_VERSION@) unstable; urgency=low
+
+  * Added ROCm Packaging
+
+ -- Yiltan Temucin <yiltan@amd.com>  Fri, 28 Feb 2025 11:57:55 +0300

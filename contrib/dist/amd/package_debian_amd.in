@@ -1,0 +1,29 @@
+#!/bin/sh
+ROCM_OMPI_INSTALL_PATH=${ROCM_OMPI_INSTALL_PATH:-/opt/rocm}
+ROCM_UCX_INSTALL_PATH=${ROCM_UCX_INSTALL_PATH:-/opt/rocm}
+ROCM_PATH=${ROCM_PATH:-/opt/rocm}
+
+if [ ! -f ./autogen.pl ]; then
+    echo Please run from ompi root folder
+    exit 1
+fi
+
+DEFAULT_CONFIG_ARGS="--prefix=$ROCM_OMPI_INSTALL_PATH 	  \
+	             --libdir=$ROCM_OMPI_INSTALL_PATH/lib \
+                     --with-rocm=$ROCM_PATH               \
+                     --with-ucx=$ROCM_UCX_INSTALL_PATH    \
+                     --with-prrte=internal        	  \
+                     --with-pmix=internal         	  \
+                     --with-hwloc=internal        	  \
+                     --with-libevent=external	          \
+                     --without-cuda               	  \
+                     --without-ofi                	  \
+                     --without-hcoll"
+
+export CONFIG_ARGS=${CONFIG_ARGS:-$DEFAULT_CONFIG_ARGS}
+
+# PMIx Doesn't like this flag
+export DEB_BUILD_MAINT_OPTIONS="optimize=-lto"
+
+cp -R ./contrib/dist/amd/debian .
+dpkg-buildpackage -us -uc

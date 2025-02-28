@@ -29,6 +29,7 @@
 # Copyright (c) 2019      Triad National Security, LLC. All rights
 #                         reserved.
 # Copyright (c) 2023      Jeffrey M. Squyres.  All rights reserved.
+# Copyright (c) 2025      Advanced Micro Devices, Inc. All Rights reserved.
 # $COPYRIGHT$
 #
 # Additional copyrights may follow
@@ -1520,6 +1521,10 @@ AC_CONFIG_FILES([
     contrib/dist/mofed/debian/control
     contrib/dist/mofed/debian/copyright:LICENSE
 
+    contrib/dist/amd/debian/changelog
+    contrib/dist/amd/debian/control
+    contrib/dist/amd/debian/copyright:LICENSE
+
     3rd-party/Makefile
 
     test/Makefile
@@ -1539,6 +1544,11 @@ AC_CONFIG_FILES([contrib/dist/mofed/debian/rules],
                 [chmod +x contrib/dist/mofed/debian/rules])
 AC_CONFIG_FILES([contrib/dist/mofed/compile_debian_mlnx_example],
                 [chmod +x contrib/dist/mofed/compile_debian_mlnx_example])
+
+AC_CONFIG_FILES([contrib/dist/amd/debian/rules],
+                [chmod +x contrib/dist/amd/debian/rules])
+AC_CONFIG_FILES([contrib/dist/amd/package_debian_amd],
+                [chmod +x contrib/dist/amd/package_debian_amd])
 
 AS_IF([test -n "$OPAL_MAKEDIST_DISABLE"],
       [AC_MSG_WARN(["make dist" will be disabled due to: $OPAL_MAKEDIST_DISABLE])])
